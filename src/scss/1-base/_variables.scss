@@ -1,0 +1,48 @@
+// Colors
+$color-white:  #fff;
+$color-gray:   #aaa;
+$color-black: #111;
+
+$color-primary: red;
+$color-primary-hover: red;
+$color-secondary: orange;
+$color-secondary-hover: orange;
+$color-tertiary: lime;
+$color-tertiary-hover: lime;
+
+$color-error: #eeaa00;
+$color-correct: #33cc00;
+
+// Font weights
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 600;
+
+// Base Font
+$font-family-primary: sans-serif;
+$font-weight-primary: $font-weight-regular;
+$font-size-primary: 13px;
+$line-height-primary: 1.4;
+
+// Monospaced Font
+$font-family-monospaced: monospace;
+$font-size-monospaced: 85%;
+$line-height-monospaced: $line-height-primary;
+
+// Headings
+$font-weight-header: $font-weight-bold;
+
+// Breakpoints
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+$break-small: 320px;
+$break-large: 1200px;
