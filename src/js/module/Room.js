@@ -76,6 +76,42 @@ class Room {
     });
   }
 
+  getEdgesTop() {
+    return this.edges.filter(el => el < this.size.x);
+  }
+
+  getEdgesBottom() {
+    return this.edges.filter(
+      el => el > this.size.y * this.size.x - this.size.x - 1
+    );
+  }
+
+  getEdgesLeft() {
+    return this.edges.filter(el => el % this.size.x === 0);
+  }
+
+  getEdgesRight() {
+    return this.edges.filter(el => el % this.size.x === this.size.x - 1);
+  }
+
+  getEdges() {
+    return {
+      left: this.getEdgesLeft(),
+      right: this.getEdgesRight(),
+      top: this.getEdgesTop(),
+      bottom: this.getEdgesBottom()
+    };
+  }
+
+  getEdgesAmount() {
+    return {
+      left: this.getEdgesLeft().length,
+      right: this.getEdgesRight().length,
+      top: this.getEdgesTop().length,
+      bottom: this.getEdgesBottom().length
+    };
+  }
+
   init() {
     this.fillTiles();
   }
