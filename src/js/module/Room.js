@@ -112,6 +112,19 @@ class Room {
     };
   }
 
+  removeRandomEdge(count = 1, edgesArr = this.edges) {
+    let randomIndex;
+    let randomEdge;
+
+    for (let i = 0; i < count; i += 1) {
+      randomIndex = Math.floor(Math.random() * edgesArr.length);
+      randomEdge = edgesArr[randomIndex];
+
+      this.tiles[randomEdge] = 0;
+      edgesArr.splice(randomIndex, 1);
+    }
+  }
+
   init() {
     this.fillTiles();
   }
