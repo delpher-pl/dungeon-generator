@@ -1,6 +1,16 @@
 {
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
     "rules": {
-        "linebreak-style": ["error", "windows"]
-    }
+        "linebreak-style": ["error", "windows"],
+        "prettier/prettier": "error"
+    },
+    "env": {
+        "browser": true
+    },
+    "plugins": [
+        "prettier"
+    ]
 }
