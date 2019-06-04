@@ -5,6 +5,7 @@ class Room {
       y
     };
     this.tiles = null;
+    this.edges = [];
     this.corners = [];
   }
 
@@ -59,6 +60,20 @@ class Room {
     this.corners.push(this.size.x - 1);
     this.corners.push(this.size.x * this.size.y - this.size.x);
     this.corners.push(this.size.x * this.size.y - 1);
+  }
+
+  findEdges() {
+    this.tiles.forEach((el, i) => {
+      if (
+        this.corners.indexOf(i) === -1 &&
+        (i < this.size.x ||
+          i > this.size.y * this.size.x - this.size.x - 1 ||
+          i % this.size.x === 0 ||
+          i % this.size.x === this.size.x - 1)
+      ) {
+        this.edges.push(i);
+      }
+    });
   }
 
   init() {
