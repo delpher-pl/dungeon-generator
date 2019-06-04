@@ -5,6 +5,7 @@ class Room {
       y
     };
     this.tiles = null;
+    this.corners = [];
   }
 
   validateCoordinates(x, y) {
@@ -51,6 +52,13 @@ class Room {
     }
 
     return false;
+  }
+
+  findCorners() {
+    this.corners.push(0);
+    this.corners.push(this.size.x - 1);
+    this.corners.push(this.size.x * this.size.y - this.size.x);
+    this.corners.push(this.size.x * this.size.y - 1);
   }
 
   init() {
