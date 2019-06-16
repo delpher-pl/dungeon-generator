@@ -112,6 +112,31 @@ class Room {
     };
   }
 
+  addHole(maxSize) {
+    let MAX_WIDTH;
+    let MAX_HEIGHT;
+
+    if (this.size.x < 5 || this.size.y < 5) {
+      MAX_WIDTH = 1;
+      MAX_HEIGHT = 1;
+    } else {
+      MAX_WIDTH = maxSize || this.size.x - 4;
+      MAX_HEIGHT = maxSize || this.size.y - 4;
+    }
+
+    const WIDTH = Math.floor(Math.random() * MAX_WIDTH + 1);
+    const HEIGHT = Math.floor(Math.random() * MAX_HEIGHT + 1);
+
+    const START_X = Math.floor(Math.random() * (this.size.x - 3 - WIDTH) + 2);
+    const START_Y = Math.floor(Math.random() * (this.size.y - 3 - HEIGHT) + 2);
+
+    for (let j = 0; j < HEIGHT; j += 1) {
+      for (let i = 0; i < WIDTH; i += 1) {
+        this.setTile(START_X + i, START_Y + j, 0);
+      }
+    }
+  }
+
   removeRandomEdge(count = 1, edgesArr = this.edges) {
     let randomIndex;
     let randomEdge;
