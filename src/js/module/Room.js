@@ -134,6 +134,37 @@ class Room {
     }
   }
 
+  countNeighbours(x, y, countDiagonal = false) {
+    const counter = [
+      this.getTile(x, y - 1),
+      this.getTile(x, y + 1),
+      this.getTile(x - 1, y),
+      this.getTile(x + 1, y)
+    ];
+
+    if (countDiagonal) {
+      counter.push(this.getTile(x - 1, y - 1));
+      counter.push(this.getTile(x + 1, y + 1));
+      counter.push(this.getTile(x - 1, y + 1));
+      counter.push(this.getTile(x + 1, y - 1));
+    }
+
+    return counter.filter(el => el > 0).length;
+  }
+
+  removeIsolatedTiles() {
+    const WIDTH = this.size.x;
+    const HEIGHT = this.size.y;
+
+    for (let h = 0; h < HEIGHT; h += 1) {
+      for (let w = 0; w < WIDTH; w += 1) {
+        if (this.countNeighbours(w, h) === 0) {
+          this.setTile(w, h, 0);
+        }
+      }
+    }
+  }
+
   removeRandomEdge(count = 1, edgesArr = this.edges) {
     let randomIndex;
     let randomEdge;
