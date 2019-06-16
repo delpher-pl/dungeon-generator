@@ -113,15 +113,12 @@ class Room {
   }
 
   addHole(maxSize) {
-    let MAX_WIDTH;
-    let MAX_HEIGHT;
+    let MAX_WIDTH = maxSize || this.size.x - 4;
+    let MAX_HEIGHT = maxSize || this.size.y - 4;
 
     if (this.size.x < 5 || this.size.y < 5) {
       MAX_WIDTH = 1;
       MAX_HEIGHT = 1;
-    } else {
-      MAX_WIDTH = maxSize || this.size.x - 4;
-      MAX_HEIGHT = maxSize || this.size.y - 4;
     }
 
     const WIDTH = Math.floor(Math.random() * MAX_WIDTH + 1);
