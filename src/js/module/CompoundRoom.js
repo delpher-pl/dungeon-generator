@@ -23,6 +23,10 @@ class CompoundRoom {
   createEmptyRoom() {
     this.tiles = Array.from({ length: this.size.x * this.size.y }, () => 0);
   }
+
+  clearRooms() {
+    this.rooms = [];
+  }
 }
 
 module.exports = CompoundRoom;
