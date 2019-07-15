@@ -1,5 +1,9 @@
 class Branch {
   constructor() {
+    this.size = {
+      x: 0,
+      y: 0
+    };
     this.tiles = [];
   }
 
