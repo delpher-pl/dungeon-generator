@@ -18,6 +18,13 @@ class Branch {
   getTiles() {
     return this.tiles;
   }
+
+  getTileIndex(x, y) {
+    if (this.isInRange(x, y)) {
+      return this.size.x * y + x;
+    }
+    return -1;
+  }
 }
 
 module.exports = Branch;
