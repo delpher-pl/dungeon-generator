@@ -32,6 +32,19 @@ class Branch {
     }
     return -1;
   }
+
+  setTile(x, y, value) {
+    if (arguments.length === 3 && this.isInRange(x, y)) {
+      this.tiles[this.getTileIndex(x, y)] = value;
+      return true;
+    }
+    if (arguments.length === 2 && x >= 0 && x < this.tiles.length) {
+      this.tiles[x] = y;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 module.exports = Branch;
